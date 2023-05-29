@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Webpage Design</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 400px;
+            max-width: 80%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .form-input {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .form-input::placeholder {
+            color: #aaa;
+        }
+
+        .form-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .form-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">JobFinder</h2>
+            </div>
+
+            <div class="menu">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+            </div>
+        </div> 
+
+        <div class="content">
+            <h1>Dëshironi të punësoheni në <br><span>njërën nga hotelet tona?</span></h1>
+            <p class="par">Atëherë ju jeni në vendin e duhur. Pozita të lira për punësim në hotele <br> të ndryshme. Thjeshtë plotësoni formularin e dhënë tek butoni mëposhtëm 
+                <br> Aplikimi për punë, dhe ne do të jemi në gatishmëri për t'ju ofruar punë juve.</p>
+              
+                
+
+            <a href="Aplikimperpune.html"><button type="submit">Aplikimi për punë</button></a>
+             
+
+
+            <div class="form">
+                <h2>Login Here</h2>
+                <form id="loginForm">
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <button class="btnn" type="submit">Login</button>
+                </form>
+                <p class="link">Don't have an account?<br>
+                    <a href="#" id="signupLink">Sign up</a> here</p>
+            </div>
+        </div>
+    </div>
+
+   
+    
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Sign Up</h2>
+            <form id="signupForm">
+                <input type="text" name="username" class="form-input" placeholder="Username" required>
+                <input type="email" name="email" class="form-input" placeholder="Email" required>
+                <input type="password" name="password" class="form-input" placeholder="Password" required>
+                <button class="form-btn" type="submit">Sign Up</button>
+            </form>
+            <p>Already have an account? <a href="index.html" id="loginLink">Login</a> here</p>
+        </div>
+    </div>
+
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const signupLink = document.getElementById('signupLink');
+        const signupModal = document.getElementById('signupModal');
+        const closeBtn = document.getElementsByClassName('close')[0];
+        const signupForm = document.getElementById('signupForm');
+
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const email = loginForm.elements.email.value;
+            const password = loginForm.elements.password.value;
+
+            if (!email || !password) {
+                alert('Please fill in all the required fields.');
+            } else {
+                
+                alert('You have successfully logged in.');
+
+                
+                const loginData = {
+                    email: email,
+                    password: password
+                };
+
+                localStorage.setItem('loginData', JSON.stringify(loginData));
+
+                
+                loginForm.reset();
+            }
+        });
+
+        signupLink.addEventListener('click', function(event) {
+            event.preventDefault();
+            signupModal.style.display = 'block';
+        });
+
+        closeBtn.addEventListener('click', function() {
+            signupModal.style.display = 'none';
+        });
+
+        signupForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const username = signupForm.elements.username.value;
+            const email = signupForm.elements.email.value;
+            const password = signupForm.elements.password.value;
+
+            if (!username || !email || !password) {
+                alert('Please fill in all the required fields.');
+            } else {
+                
+                alert('You have successfully signed up.');
+
+                
+                const signupData = {
+                    username: username,
+                    email: email,
+                    password: password
+                };
+
+                localStorage.setItem('signupData', JSON.stringify(signupData));
+
+                
+                signupForm.reset();
+
+                
+                signupModal.style.display = 'none';
+            }
+        });
+    </script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet"> 
+</head>
+<body>
+<footer>
+<div class="footer">
+<div class="row">
+<a href="about.html">JobFinderCommunity</a></li>
+</div>
+
+<div class="row">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">Our Services</a></li>
+<li><a href="contact.html">Contact us</a></li>
+</ul>
+</div>
+
+<div class="row">
+ © 2023 - All rights reserved || Punuar nga: Edona Gashi, Ardian Sallauka & Ilir Selmani
+</div>
+</div>
+</footer>
+</body>
+</html>
