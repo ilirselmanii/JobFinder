@@ -1,0 +1,79 @@
+<form action="SEND ADDRESS" id="ft-form" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
+    <fieldset>
+      <legend>JobFinder</legend>
+      <link rel="stylesheet" type="text/css" href="style.css">
+
+      <label>
+        Aplikimi për pune
+        <select name="Application for" required>
+          <option>Menaxher i Hotelit</option>
+          <option>Recepsionist</option>
+          <option>Staf Kuzhine</option>
+          <option>Staf Pastrimi</option>
+          <option>Staf i sherbimit ne dhoma</option>
+          <option>Staf i sherbimit ne restorant</option>
+        </select>
+      </label>
+    </fieldset>
+    <fieldset>
+      <legend>Të dhënat personale</legend>
+      <div class="two-cols">
+        <label>
+          Emri *
+          <input type="text" name="First name" required>
+        </label>
+        <label>
+          Mbiemri *
+          <input type="text" name="Family name" required>
+        </label>
+      </div>
+      <div class="two-cols">
+        <label>
+          Shteti
+          <input type="text" name="Citizenship">
+        </label>
+      </div>
+      <label>
+        Adresa
+        <input type="text" name="Address">
+      </label>
+      <div class="two-cols">
+        <label>
+          ZIP Code
+          <input type="text" name="ZIP">
+        </label>
+        <label>
+          Qyteti
+          <input type="text" name="City">
+        </label>
+      </div>
+      <div class="two-cols">
+        <label>
+          Phone *
+          <input type="tel" name="Phone" required>
+        </label>
+        <label>
+          Email address *
+          <input type="email" name="Email" required>
+        </label>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Paraqitja dokumenteve</legend>
+      <input type="hidden" name="MAX_FILE_SIZE" value="10485760">
+      <div class="two-cols">
+        <label>
+          Letërnjoftimi
+          <input type="file" name="Application letter" accept=".doc,.docx,.pdf">
+        </label>
+        <label>
+          CV
+          <input type="file" name="Curriculum vitae" accept=".doc,.docx,.pdf">
+        </label>
+      </div>
+    </fieldset>
+    <div class="btns">
+      <input type="text" name="_gotcha" value="" style="display:none;">
+      <input type="submit" value="Submit application">
+    </div>
+  </form>
